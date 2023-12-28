@@ -1,2 +1,4 @@
-package algot.emil.kafkamessageapi.DTO;public record MessageRequest() {
+package algot.emil.kafkamessageapi.DTO;
+
+public record MessageRequest(String message) {
 }
