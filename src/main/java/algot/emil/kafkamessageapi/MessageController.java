@@ -1,6 +1,8 @@
 package algot.emil.kafkamessageapi;
 
 import algot.emil.kafkamessageapi.DTO.MessageRequest;
+import algot.emil.kafkamessageapi.DTO.SendMessageDTO;
+import algot.emil.kafkamessageapi.DTO.SendMessageDTO2;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,14 +11,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping({"/messages/", "messages/"})
 public class MessageController {
 
-    private KafkaTemplate<String, String> kafkaTemplate;
+    //@AutoWired ??
+    private KafkaTemplate<String, SendMessageDTO> kafkaTemplate;
 
-    public MessageController(KafkaTemplate<String, String> kafkaTemplate) {
+    public MessageController(KafkaTemplate<String, SendMessageDTO> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     @PostMapping("send/")
-    public void publish(@RequestBody MessageRequest request){
-        kafkaTemplate.send("algot_test", request.message());
+    public void publish(@RequestBody SendMessageDTO request){
+        kafkaTemplate.send("algot_test", request);
     }
 }
