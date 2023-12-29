@@ -1,7 +1,6 @@
 package algot.emil.kafkamessageapi.config;
 
 import algot.emil.kafkamessageapi.DTO.SendMessageDTO;
-import algot.emil.kafkamessageapi.DTO.SendMessageDTO2;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

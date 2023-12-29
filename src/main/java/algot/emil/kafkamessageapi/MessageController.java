@@ -1,8 +1,6 @@
 package algot.emil.kafkamessageapi;
 
-import algot.emil.kafkamessageapi.DTO.MessageRequest;
 import algot.emil.kafkamessageapi.DTO.SendMessageDTO;
-import algot.emil.kafkamessageapi.DTO.SendMessageDTO2;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
