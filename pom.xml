@@ -51,6 +51,19 @@
 			<artifactId>kafka-streams</artifactId>
 		</dependency>
 
+		<!-- Spring Boot Starter Websocket -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- jackson används för automatisk databinding-->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

@@ -1,10 +1,10 @@
 package algot.emil.kafkamessageapi;
 
 import algot.emil.kafkamessageapi.DTO.SendMessageDTO;
+import algot.emil.kafkamessageapi.controllers.ChatController;
 import algot.emil.kafkamessageapi.services.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,13 @@ import org.springframework.stereotype.Service;
 public class KafkaReciever {
 
     private final MessageService messageService;
+    private final ChatController chatController;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaReciever.class);
 
-    public KafkaReciever(MessageService messageService) {
+    public KafkaReciever(MessageService messageService, ChatController chatController) {
         this.messageService = messageService;
+        this.chatController = chatController;
     }
 
     @KafkaListener(topics = "algot_test", groupId = "algotsGruppId", containerFactory = "factory")
@@ -23,5 +26,6 @@ public class KafkaReciever {
         System.out.println("data received from: "+data.senderId() + ", to: " + data.receiverId()+", data: " + data.message());
         LOGGER.info("Data - " + data + " recieved");
         messageService.sendMessage(data);
+        chatController.recMessage(data); //sends the data to all relevant users
     }
 }
