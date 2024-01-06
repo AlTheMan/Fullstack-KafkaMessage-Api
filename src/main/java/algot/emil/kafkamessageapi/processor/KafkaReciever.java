@@ -1,4 +1,4 @@
-package algot.emil.kafkamessageapi;
+package algot.emil.kafkamessageapi.processor;
 
 import algot.emil.kafkamessageapi.DTO.SendMessageDTO;
 import algot.emil.kafkamessageapi.controllers.ChatController;

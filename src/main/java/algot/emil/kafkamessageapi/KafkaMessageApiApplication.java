@@ -18,6 +18,24 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import java.time.LocalDate;
 import java.util.Properties;
 
+
+/**
+ * Kafka streams is running in paralell with Kafka producer/consumer
+ * To run;
+ * open powershell
+ * cd InsertYourKafkaFolderHere (for me it's Cd C:\kafka_2.13-3.6.1)
+ * Start Kafka in windows:
+ * bin/windows/zookeeper-server-start.bat config/zookeeper.properties
+ * then open new powershell terminal and;
+ * bin/windows/kafka-server-start.bat config/server.properties
+ * To stop the server;
+ * bin/windows/kafka-server-stop.bat config/server.properties
+ * Open a new terminal, read messages; (topic namnet is set to "algot_test");
+ * bin/windows/kafka-console-consumer.bat --topic algot_test --from-beginning --bootstrap-server localhost:9092
+ * Open a new terminal, send messages (topic is set to "spring.boot.kafka.stream.input"
+ * bin/windows/kafka-console-producer.bat --topic spring.boot.kafka.stream.input --broker-list localhost:9092
+ *
+ */
 @EnableKafka
 @EnableKafkaStreams
 @SpringBootApplication
