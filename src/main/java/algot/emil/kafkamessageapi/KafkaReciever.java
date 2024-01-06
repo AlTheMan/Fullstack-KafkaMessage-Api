@@ -21,9 +21,9 @@ public class KafkaReciever {
         this.chatController = chatController;
     }
 
-    @KafkaListener(topics = "algot_test", groupId = "algotsGruppId", containerFactory = "factory")
+    @KafkaListener(topics = "processed_algot_test", groupId = "algotsGruppId", containerFactory = "factory")
     public void recieveData(SendMessageDTO data) throws Exception {
-        System.out.println("data received from: "+data.senderId() + ", to: " + data.receiverId()+", data: " + data.message());
+        System.out.println("Kafka Listener: data received from: "+data.senderId() + ", to: " + data.receiverId()+", data: " + data.message());
         LOGGER.info("Data - " + data + " recieved");
         messageService.sendMessage(data);
         chatController.recMessage(data); //sends the data to all relevant users
