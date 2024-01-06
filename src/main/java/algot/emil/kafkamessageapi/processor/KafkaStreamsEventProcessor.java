@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class KafkaStreams {
+public class KafkaStreamsEventProcessor {
 
     @Autowired
     private StreamsBuilder streamsBuilder;
