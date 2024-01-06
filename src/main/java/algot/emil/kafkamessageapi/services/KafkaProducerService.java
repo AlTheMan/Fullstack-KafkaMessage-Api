@@ -4,12 +4,15 @@ import algot.emil.kafkamessageapi.DTO.SendMessageDTO;
 import algot.emil.kafkamessageapi.processor.KafkaProducer;
 import org.springframework.stereotype.Service;
 
+/**
+ * this class initializes a kafka producer and sends messages according to topic
+ */
 @Service
-public class KafkaService {
+public class KafkaProducerService {
 
     private KafkaProducer producer;
 
-    public KafkaService() {
+    public KafkaProducerService() {
         this.producer = new KafkaProducer("localhost:9092");
     }
 

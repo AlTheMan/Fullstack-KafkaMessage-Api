@@ -10,6 +10,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 @Service
 public class MessageService {
 
@@ -19,6 +22,10 @@ public class MessageService {
         this.repository = messageRepository;
     }
 
+    /**
+     * saves messages you have sennt to database.
+     * @param dto
+     */
     public void sendMessage(SendMessageDTO dto) {
         if (dto.receiverId() == null || dto.senderId() == null) return;
         if (dto.receiverId() < 0 || dto.senderId() < 0) return;
@@ -28,6 +35,11 @@ public class MessageService {
         repository.save(newMessage);
     }
 
+    /**
+     * retreives all messages based on conversation between two persons IDs
+     * @param dto the IDs of the people you want to retrieve messages from
+     * @return a list of messages.
+     */
     public List<Message> getMessage(GetMessageDTO dto) {
         if (dto.id1() == null || dto.id2() == null) return null;
         if (dto.id1() < 0 || dto.id2() < 0) return null; //TODO: kasta exception

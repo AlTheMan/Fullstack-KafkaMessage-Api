@@ -16,6 +16,9 @@ public class KafkaStreamsEventProcessor {
     @Autowired
     private StreamsBuilder streamsBuilder;
 
+    /**
+     * events processor
+     */
     @PostConstruct
     public void streamTopology() {
         KStream<String, String> kStream = streamsBuilder.stream("spring.boot.kafka.stream.input", Consumed.with(Serdes.String(), Serdes.String()));

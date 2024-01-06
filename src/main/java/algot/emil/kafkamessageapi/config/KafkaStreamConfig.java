@@ -63,8 +63,6 @@ public class KafkaStreamConfig {
         KStream<String, SendMessageDTO> stream = builder.stream("algot_test",
                 Consumed.with(Serdes.String(), new SendMessageDTOSerde()));
 
-        //kStream.filter((key, value) -> value.startsWith("Message_")).mapValues((k, v) -> v.toUpperCase()).peek((k, v) -> System.out.println("Key : " + k + " Value : " + v)).to("spring.boot.kafka.stream.output", Produced.with(Serdes.String(), Serdes.String()));
-
         stream.mapValues(value ->value)
                 .peek((key, value) -> System.out.println("Kafka stream: Processed message: " + value)) // Print the value
                 .to("processed_algot_test", Produced.with(Serdes.String(), new SendMessageDTOSerde())); //send the message forward.
