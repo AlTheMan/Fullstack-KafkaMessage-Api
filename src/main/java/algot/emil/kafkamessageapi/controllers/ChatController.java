@@ -42,7 +42,7 @@ public class ChatController {
     @MessageMapping("/private-message")
     public SendMessageDTO recMessage(@Payload SendMessageDTO message){
         simpMessagingTemplate.convertAndSendToUser(message.receiverId().toString(),"/private",message);
-        System.out.println(message.toString());
+        System.out.println("WebSocket: sending message to front-end-client: " + message.toString());
         return message;
     }
 }

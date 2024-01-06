@@ -7,14 +7,11 @@ import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Produced;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
 import org.springframework.stereotype.Component;
 
 
 @Component
-public class EventStreamsProcessor {
+public class KafkaStreamsEventProcessor {
 
     @Autowired
     private StreamsBuilder streamsBuilder;

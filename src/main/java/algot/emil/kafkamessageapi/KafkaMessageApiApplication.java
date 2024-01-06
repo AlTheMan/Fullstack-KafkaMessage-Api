@@ -28,33 +28,6 @@ public class KafkaMessageApiApplication {
 		SpringApplication.run(KafkaMessageApiApplication.class, args);
 	}
 
-	/*
-	@Bean
-	public KafkaStreams kafkaStreams() {
-		Properties props = new Properties();
-		props.put(StreamsConfig.APPLICATION_ID_CONFIG, "kafka-streams-app");
-		props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-		props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-		props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-
-		StreamsBuilder builder = new StreamsBuilder();
-		KStream<String, String> inputTopicStream = builder.stream("input_topic");
-
-		inputTopicStream.mapValues(value -> {
-			// Process the message
-			return "Processed: " + value;
-		}).to("output_topic");
-
-		KafkaStreams streams = new KafkaStreams(builder.build(), props);
-		streams.start();
-
-		Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
-
-		return streams;
-	}
-
-	 */
-
 	@Bean
 	CommandLineRunner commandLineRunner(KafkaTemplate<String,SendMessageDTO> kafkaTemplate){
 		return args -> {

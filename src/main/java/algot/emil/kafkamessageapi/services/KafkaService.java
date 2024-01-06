@@ -1,16 +1,16 @@
 package algot.emil.kafkamessageapi.services;
 
 import algot.emil.kafkamessageapi.DTO.SendMessageDTO;
-import algot.emil.kafkamessageapi.processor.MyKafkaProducer;
+import algot.emil.kafkamessageapi.processor.KafkaProducer;
 import org.springframework.stereotype.Service;
 
 @Service
 public class KafkaService {
 
-    private MyKafkaProducer producer;
+    private KafkaProducer producer;
 
     public KafkaService() {
-        this.producer = new MyKafkaProducer("localhost:9092");
+        this.producer = new KafkaProducer("localhost:9092");
     }
 
     public void sendMessageToKafka(SendMessageDTO message) {

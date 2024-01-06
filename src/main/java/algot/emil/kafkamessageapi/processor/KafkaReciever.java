@@ -1,4 +1,4 @@
-package algot.emil.kafkamessageapi;
+package algot.emil.kafkamessageapi.processor;
 
 import algot.emil.kafkamessageapi.DTO.SendMessageDTO;
 import algot.emil.kafkamessageapi.controllers.ChatController;
@@ -24,7 +24,7 @@ public class KafkaReciever {
     @KafkaListener(topics = "processed_algot_test", groupId = "algotsGruppId", containerFactory = "factory")
     public void recieveData(SendMessageDTO data) throws Exception {
         System.out.println("Kafka Listener: data received from: "+data.senderId() + ", to: " + data.receiverId()+", data: " + data.message());
-        LOGGER.info("Data - " + data + " recieved");
+        //LOGGER.info("Data - " + data + " recieved");
         messageService.sendMessage(data);
         chatController.recMessage(data); //sends the data to all relevant users
     }
