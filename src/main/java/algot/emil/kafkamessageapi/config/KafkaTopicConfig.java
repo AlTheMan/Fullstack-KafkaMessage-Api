@@ -16,4 +16,10 @@ public class KafkaTopicConfig {
         return TopicBuilder.name("algot_test")
                 .build();
     }
+
+    @Bean
+    public NewTopic testTopic2(){
+        return TopicBuilder.name("processed_algot_test")
+                .build();
+    }
 }
