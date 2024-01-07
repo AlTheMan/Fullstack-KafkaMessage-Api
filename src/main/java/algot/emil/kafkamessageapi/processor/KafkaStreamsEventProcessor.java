@@ -17,7 +17,7 @@ public class KafkaStreamsEventProcessor {
     private StreamsBuilder streamsBuilder;
 
     /**
-     * events processor
+     * events processor. This one isnt used. 
      */
     @PostConstruct
     public void streamTopology() {
