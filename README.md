@@ -1,5 +1,7 @@
-This application is meant for message handling (API) <br>
+This application is meant for message handling (API) and was built mostly for experimentation <br>
 Uses web sockets to communicate with front-end<br>
+Has unit tests <br>
+
 <br>
 Flow of the application; <br>
 when retreiving messages from front-end; the application stores the message in database as well as sends the message forward to the intenden recipient (through ID)<br>
