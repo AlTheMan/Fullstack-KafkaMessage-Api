@@ -10,19 +10,19 @@ the kafka consumer sends the message forward to the database, as well as sending
 When a front-end client calls GET-messages, then no Kafka is used at all, everything is then just retreived from the database as usual.<br>
  <br>
 To run;<br>
-    open powershell<br>
-    cd InsertYourKafkaFolderHere (for me it's Cd C:\kafka_2.13-3.6.1)<br>
+> open powershell<br>
+> cd InsertYourKafkaFolderHere (for me it's Cd C:\kafka_2.13-3.6.1)<br>
 Start Kafka in windows:<br>
-    bin/windows/zookeeper-server-start.bat config/zookeeper.properties<br>
-    then open new powershell terminal and;<br>
-    bin/windows/kafka-server-start.bat config/server.properties<br>
+> bin/windows/zookeeper-server-start.bat config/zookeeper.properties<br>
+> then open new powershell terminal and;<br>
+> bin/windows/kafka-server-start.bat config/server.properties<br>
 To stop the server;<br>
-    bin/windows/kafka-server-stop.bat config/server.properties<br>
-read messages; <br>
-    Open a new terminal (topic namnet is set to "algot_test")<br>
-    bin/windows/kafka-console-consumer.bat --topic algot_test --from-beginning --bootstrap-server localhost:9092<br>
-send messages <br>
-    Open a new terminal (topic is set to "spring.boot.kafka.stream.input"<br>
-    bin/windows/kafka-console-producer.bat --topic spring.boot.kafka.stream.input --broker-list localhost:9092<br>
+> bin/windows/kafka-server-stop.bat config/server.properties<br>
+Read messages; <br>
+> Open a new terminal (topic namnet is set to "algot_test")<br>
+> bin/windows/kafka-console-consumer.bat --topic algot_test --from-beginning --bootstrap-server localhost:9092<br>
+Send messages <br>
+> Open a new terminal (topic is set to "spring.boot.kafka.stream.input"<br>
+> bin/windows/kafka-console-producer.bat --topic spring.boot.kafka.stream.input --broker-list localhost:9092<br>
  <br>
 See branch in github for simpler example of kafka streams and producer/consumer<br>
