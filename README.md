@@ -5,7 +5,7 @@ Has unit tests <br>
 <br>
 Flow of the application; <br>
 when retreiving messages from front-end; the application stores the message in database as well as sends the message forward to the intenden recipient (through ID)<br>
-when retreiving messages from front-end: A kafka producer sends the message to a Kafka stream (Kafka stream is an unnessecary middle-man), and kafka stream sends it forward to a kafka-consumer;<br>
+when retreiving messages from front-end: A kafka producer sends the message to a Kafka stream (Kafka stream is an unnessecary middle-man, but was used as a proof of concept and testing), and kafka stream sends it forward to a kafka-consumer;<br>
 the kafka consumer sends the message forward to the database, as well as sending the message to web-socket to forward the message to the intenden recipient.<br>
 When a front-end client calls GET-messages, then no Kafka is used at all, everything is then just retreived from the database as usual.<br>
  <br>
